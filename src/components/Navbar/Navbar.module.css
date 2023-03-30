@@ -1,0 +1,17 @@
+.nav {
+  padding: 20px;
+  background-color: burlywood;
+  grid-area: n;
+}
+
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+/* .item a.activeLink {
+  color: gold;
+  text-decoration: underline;
+} */
+
+.item [aria-current="page"] { color: gold;}

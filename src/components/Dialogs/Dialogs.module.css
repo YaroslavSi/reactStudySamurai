@@ -22,3 +22,15 @@
 .messages .message {
 
 }
+
+.dialogsItems img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+.message {
+    color: green;
+    display: flex;
+    justify-content: right;
+}

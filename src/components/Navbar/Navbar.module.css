@@ -15,3 +15,17 @@
 } */
 
 .item [aria-current="page"] { color: gold;}
+
+.friends {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.friends .friend_item img {
+  height: 50px;
+  width: 50px;
+  color: blue;
+  
+}

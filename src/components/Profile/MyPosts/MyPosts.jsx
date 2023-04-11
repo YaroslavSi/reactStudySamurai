@@ -2,27 +2,42 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = () => {
-    let postData = [
-        {id: 1, message: 'Hi, how are you?', like: 'like: 25'},
-        {id: 2, message: 'It is my fist post', like: "like: 32"},
-    ]
+const MyPosts = (props) => {
+    
+
+    let postsElements = props.posts.map((p) => {
+        return <Post message={p.message} like={p.like} />
+    });
+
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        // let text = newPostElement.current.value;у нас уже є він у стате
+        props.addPost();
+        // newPostElement.current.value = ''; Зануляємо нижче 
+        // props.updateNewPostText(''); щоб не завжди очишалось перенесемо його
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text); 
+    }
+
     return (
         <div className={s.postsBlock}>
             <h2>My posts</h2>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea onChange={onPostChange} ref= {newPostElement} value={props.newPostText}></textarea>
                 </div>
                 <div>
-                    <button>Add posts</button>
+                    <button onClick={addPost}>Add posts</button>
                 </div>
-                <button>Remove posts</button>
+                <button >Remove posts</button>
             </div>
 
             <div className={s.posts}>
-                <Post message={postData[0].message} like={postData[0].like} />
-                <Post message={postData[1].message} like={postData[1].like} />
+                {postsElements};
             </div>
         </div>
     )

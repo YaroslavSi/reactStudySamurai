@@ -1,13 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-
-let addPostActionCreator = () => {
-    return {
-        type: 'ADD-POST',
-
-    }
-}
+import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/state';
 
 const MyPosts = (props) => {
 
@@ -18,7 +12,7 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
         // let text = newPostElement.current.value;у нас уже є він у стате
         // newPostElement.current.value = ''; Зануляємо нижче 
         // props.updateNewPostText(''); щоб не завжди очишалось перенесемо його
@@ -26,7 +20,7 @@ const MyPosts = (props) => {
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+        let action = updateNewPostTextActionCreator(text);
         props.dispatch(action);
     }
 

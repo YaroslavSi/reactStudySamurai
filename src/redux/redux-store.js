@@ -6,13 +6,11 @@ import usersReducer from "./users-reducer";
 let reducers = combineReducers ({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
-    usersPage: usersReducer,
+    usersPage: usersReducer
     // sideBar: sideBar,
     
 });
 
 let store = createStore(reducers);
-
 window.store = store;
-
 export default store;

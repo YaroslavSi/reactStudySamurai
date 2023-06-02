@@ -52,12 +52,11 @@ const Dialogs = (props) => {
 }
 
 
-
 const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             
-            <Field placeholder={"enter u message"} name={'newMessageBody'} component = "textarea" />
+            <Field placeholder={"enter u message"} name={'newMessageBody'} component = 'Textarea' />
             <button>send</button>
         </form>
     )

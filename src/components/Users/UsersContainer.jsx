@@ -8,7 +8,7 @@ import { usersAPI } from '../../api/api';
 import { toggleFollowingProgress } from '../../redux/users-reducer';
 import { compose } from 'redux';
 import { withAuthNavigate } from '../../hoc/withAuthNavigate';
-import { getTotalUsersCount, getUsers, getPageSize, getCurrentPage, getFollowingInProgress, getIsFetching } from '../../redux/users-selectors';
+import { getTotalUsersCount, getUsers, getPageSize, getCurrentPage, getFollowingInProgress, getIsFetching, getUsersSuper, getUsersSuperSelector } from '../../redux/users-selectors';
 
 class UsersContainer extends React.Component {
 
@@ -53,7 +53,8 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: getUsers(state),
+        // users: getUsers(state),
+        users: getUsersSuperSelector(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
